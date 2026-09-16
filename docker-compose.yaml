@@ -1,0 +1,16 @@
+services:
+  pts:
+    build: .
+    container_name: pts-runner
+    volumes:
+      # Persist test cache, installed tests, and result logs across container builds
+      - pts-data:/root/.phoronix-test-suite
+      # Optional: Mount current host directory to extract test reports locally
+      - ./:/benchmarks
+    # Enable host network so PTS can download test files cleanly
+    network_mode: host
+    stdin_open: true
+    tty: true
+
+volumes:
+  pts-data:
