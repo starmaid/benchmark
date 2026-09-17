@@ -51,10 +51,10 @@ uint64_t integer_mix(long long n) {
 
 // Core workload: floating-point operations
 void do_work(long long iterations) {
-    float_add(iterations);
-    float_mul(iterations);
-    float_mix(iterations);
-    integer_mix(iterations);
+    std::cerr << float_add(iterations) << std::endl; 
+    std::cerr << float_mul(iterations) << std::endl; 
+    std::cerr << float_mix(iterations) << std::endl; 
+    std::cerr << integer_mix(iterations) << std::endl; 
 }
 
 int main(int argc, char* argv[]) {
