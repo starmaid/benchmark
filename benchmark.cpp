@@ -41,6 +41,8 @@ int main(int argc, char* argv[]) {
         for (auto& t : threads) {
             t.join();
         }
+    } else if (mode == "nproc") {
+        std::cout << std::thread::hardware_concurrency() << std::endl;
     } else {
         std::cerr << "Invalid mode. Use 'single' or 'multi'.\n";
         return 1;

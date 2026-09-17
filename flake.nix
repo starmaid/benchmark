@@ -51,6 +51,7 @@
                 echo "Hostname: $(hostname)"
                 echo "System Architecture: ${system}"
                 echo "nproc: $(nproc)"
+                echo "detected cores: $(cpu-benchmark 0 nproc)"
                 echo "system memory: $(grep MemTotal /proc/meminfo)" 
                 echo
               } > "$REPORT_FILE"
