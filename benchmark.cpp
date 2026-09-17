@@ -46,9 +46,6 @@ uint64_t integer_mix(long long n) {
     return a;
 }
 
-
-
-
 volatile double float_sink;
 volatile uint64_t integer_sink;
 

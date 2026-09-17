@@ -25,7 +25,7 @@
             nativeBuildInputs = [ pkgs.gcc ];
 
             buildPhase = ''
-              g++ -O3 -pthread benchmark.cpp -o cpu-benchmark
+              g++ -O3 -pthread -march=native benchmark.cpp -o cpu-benchmark
             '';
 
             installPhase = ''
