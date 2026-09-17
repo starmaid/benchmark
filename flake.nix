@@ -42,7 +42,7 @@
               REPORT_FILE="benchmark_report.md"
               
               QUICK_ITER=10000000
-              STD_ITER=10000000000
+              STD_ITER=1000000000
 
               echo "Starting CPU Benchmark Suite..."
               {

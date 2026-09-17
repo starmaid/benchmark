@@ -5,13 +5,56 @@
 #include <chrono>
 #include <string>
 
-// Core workload: floating-point operations
-double do_work(long long iterations) {
-    double result = 0.0;
-    for (long long i = 1; i <= iterations; ++i) {
-        result += std::sqrt(i * 1.0);
+double float_add(long long n) {
+    double a = 1.1;
+    double b = 2.2;
+
+    for (long long i = 0; i < n; ++i)
+        a += b;
+
+    return a;
+}
+
+double float_mul(long long n) {
+    double a = 1.000001;
+
+    for (long long i = 0; i < n; ++i)
+        a *= 1.0000001;
+
+    return a;
+}
+
+double float_mix(long long n) {
+    double a = 1.1;
+    double b = 2.2;
+
+    for (long long i = 0; i < n; ++i)
+        a = a * 1.0000001 + b;
+
+    return a;
+}
+
+uint64_t integer_mix(long long n) {
+    uint64_t a = 1100000;
+    uint64_t b = 2200000;
+
+    for (long long i = 0; i < n; ++i) {
+        a = a * 1000001 + b;
+        a ^= 0x12345678;
     }
-    return result;
+
+    return a;
+}
+
+
+
+
+// Core workload: floating-point operations
+void do_work(long long iterations) {
+    float_add(iterations);
+    float_mul(iterations);
+    float_mix(iterations);
+    integer_mix(iterations);
 }
 
 int main(int argc, char* argv[]) {
