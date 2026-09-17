@@ -41,16 +41,18 @@
             text = ''
               REPORT_FILE="benchmark_report.md"
               
-              QUICK_ITER=30000000
-              STD_ITER=3000000000
+              QUICK_ITER=10000000
+              STD_ITER=10000000000
 
               echo "Starting CPU Benchmark Suite..."
               {
                 echo "=== CPU Benchmark Report ===" 
                 echo "Date: $(date)"
-                echo "System Architecture: ${system}"
                 echo "Hostname: $(hostname)"
-                echo "" 
+                echo "System Architecture: ${system}"
+                echo "nproc: $(nproc)"
+                echo "system memory: $(grep MemTotal /proc/meminfo)" 
+                echo
               } > "$REPORT_FILE"
 
               echo "Running 1/4: Quick Single-Core..."
