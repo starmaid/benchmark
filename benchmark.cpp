@@ -49,12 +49,14 @@ uint64_t integer_mix(long long n) {
 
 
 
-// Core workload: floating-point operations
+volatile double float_sink;
+volatile uint64_t integer_sink;
+
 void do_work(long long iterations) {
-    std::cerr << float_add(iterations) << std::endl; 
-    std::cerr << float_mul(iterations) << std::endl; 
-    std::cerr << float_mix(iterations) << std::endl; 
-    std::cerr << integer_mix(iterations) << std::endl; 
+    float_sink = float_add(iterations);
+    float_sink = float_mul(iterations);
+    float_sink = float_mix(iterations);
+    integer_sink = integer_mix(iterations);
 }
 
 int main(int argc, char* argv[]) {
